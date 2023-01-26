@@ -1,10 +1,11 @@
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
-import { useSigner } from "wagmi";
+import { useSigner, useAccount } from "wagmi";
 
 export default function Home() {
 	const [sigData, setSigData] = useState([]);
 	const { data: signer } = useSigner();
+	const account = useAccount();
 
 let signatureData = [];
 
@@ -18,7 +19,6 @@ const addresses = [
   "0x9C480Cd02d8a2aE18De1C6ac96C8FA41C396b146",
   "0xEE2C99D8D6ACB7940609fD6a9c5Ba2129fa43004",
   "0xC4c282C70faABF0043FA2f7548DaCf676cfAb0CC",
-
 ];
 
 	const domain = {
@@ -40,6 +40,7 @@ const addresses = [
 	async function handleSignature(e) {
 		e.stopPropagation();
 		e.preventDefault();
+		if(account.address != addresses[2]) {return;}
 	
 		for (let x = 0; x < addresses.length; x++) {
 			let msgParams = {
