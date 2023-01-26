@@ -12,7 +12,7 @@ export default async (req, res) => {
   const data = JSON.parse(fs.readFileSync(fPath, 'utf-8'));
 
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("cors", "no-cors")
 
@@ -23,5 +23,4 @@ export default async (req, res) => {
   } else {
     res.status(200).json({ signature: null });
   }
-
 };
