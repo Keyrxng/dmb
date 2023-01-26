@@ -8,13 +8,13 @@ export default async (req, res) => {
   }
 
   const { address } = req.query;
-  const fPath = path.join(process.cwd(), '/pages/api/data.json');
+  const fPath = path.join(process.cwd(), './data.json');
   const data = JSON.parse(fs.readFileSync(fPath, 'utf-8'));
 
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader("Access-Control-Allow-Methods", "GET");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("cors", "no-cors")
+  res.setHeader("Content-Type", "application/json");
 
   const signatureData = data.find(item => item.account === address);
 
