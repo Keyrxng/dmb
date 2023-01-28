@@ -25,7 +25,7 @@ const addresses = [
 		name: "Deviants Silver Pass",
 		version: "1",
 		chainId: 80001,
-		verifyingContract: "0x8e81c0AA3Be57F8f664eD482B2dE26B0276aEd20",
+		verifyingContract: "0x4d3598f36A5a00B54f638C94E7B3bA423F38B238",
 	};
 
 	const types = {
